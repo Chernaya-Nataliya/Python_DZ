@@ -10,7 +10,7 @@ print(type(a),type(b),type(c),type(d))
 
 
 name = input('Введите ваше имя: ')
-print('Здравствуйте,' name)
+print("Здравствуйте,", name)
 
 
 num_1 = int(input('Введите целое число: '))
