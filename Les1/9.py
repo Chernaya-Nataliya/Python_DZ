@@ -7,7 +7,7 @@
 coordinate_num_x = int(input("Введите координату X: "))
 coordinate_num_y = int(input("Введите координату Y: "))
 
-def CoordinateSystem (x, y):
+def Coordinate_system (x, y):
     if x == 0 and y == 0:
         print ("Вы ввели нулевое значение! Точка находится в центре отсчета")   
     else:
@@ -25,4 +25,4 @@ def CoordinateSystem (x, y):
                 print(f'Точка {x,y} находится на оси ординат(y)')
     return x, y
 
-CoordinateSystem (coordinate_num_x, coordinate_num_y)
+Coordinate_system (coordinate_num_x, coordinate_num_y)

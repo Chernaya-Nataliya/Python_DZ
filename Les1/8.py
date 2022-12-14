@@ -8,7 +8,7 @@ def inputNum(x):
     return a
 
 
-def checkPredicate(x):
+def check_predicate(x):
     left = not (x[0] or x[1] or x[2])
     right = not x[0] and not x[1] and not x[2]
     result = left == right
@@ -17,7 +17,7 @@ def checkPredicate(x):
 
 approval = inputNum(3)
 
-if checkPredicate(approval) == True:
+if check_predicate(approval) == True:
     print(f"Утверждение истинно")
 else:
     print(f"Утверждение ложно")
