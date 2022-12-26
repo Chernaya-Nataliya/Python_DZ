@@ -4,11 +4,10 @@
 # Петров 13749.32
 
 with open('les5_3.txt', 'r', encoding='utf-8') as txt:
-    # создания словаря из данных в файле
     salaries = {line.split()[0].strip(): float(line.split()[1]) for line in txt.readlines()}
 
-sum_of_salaries = 0  # начальное значение для суммы окладов
-for surname, salary in salaries.items():  # перебор словаря
+sum_of_salaries = 0
+for surname, salary in salaries.items():
     sum_of_salaries += salary
     if salary < 20000:
         print(f'Сотрудник с окладом менее 20000 руб.: {surname}')
