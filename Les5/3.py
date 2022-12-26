@@ -3,16 +3,14 @@
 # Иванов 23543.12
 # Петров 13749.32
 
-with open(r"testex2.txt",  'w', encoding='utf-8') as text:
-    user_text = input('Введите текст. Пустая строка заканчивает ввод: ')
-    while user_text:
-        text.write(user_text + '\n') 
-        user_text = input('Введите текст \n')
-        if not user_text:
-            break    
+with open('les5_3.txt', 'r', encoding='utf-8') as txt:
+    # создания словаря из данных в файле
+    salaries = {line.split()[0].strip(): float(line.split()[1]) for line in txt.readlines()}
 
-with open(r"testex2.txt") as text:
-    f_text = text.readlines() 
-    print(f'Всего в файле {len(f_text)} строки')
-    for i, j in enumerate(f_text):
-                print(f"В строке {i + 1}: {len(j.split())} слов(а)")
+sum_of_salaries = 0  # начальное значение для суммы окладов
+for surname, salary in salaries.items():  # перебор словаря
+    sum_of_salaries += salary
+    if salary < 20000:
+        print(f'Сотрудник с окладом менее 20000 руб.: {surname}')
+average_salary = sum_of_salaries / len(salaries)
+print(f'Средняя величина дохода составляет {average_salary}')
