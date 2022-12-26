@@ -1,18 +1,12 @@
 # Создать (программно) текстовый файл, записать в него программно набор чисел, разделенных пробелами. Программа должна подсчитывать сумму чисел в файле и выводить ее на экран.
 
-report = []
-sum_salaries = 0
-with open('les5_3.txt', 'r', encoding='UTF-8') as file:
-     rows = file.readlines()
-     print("Оклады сотрудников")
-     for row in rows:
-         row_items = row.split(' ')
-         report.append([row_items[0], int(row_items[1])])
-         print(f"{row_items[0]}: {int(row_items[1])} руб.")
-         sum_salaries += int(row_items[1])
+from random import randint
 
-print("\nСотрудники с окладом менее 20000 руб.")
-[print(worker[0]) for worker in report if worker[1] < 20000]
+n = int(input("Введите количество записываемых чисел: "))
+numbers = [str(randint(0, 100)) for i in range(n)]
+with open(r'python_dz\les5\les5_5.txt', 'w', encoding='utf-8') as txt:
+    txt.write(' '.join(numbers))
 
-
-print(f"\nСредний оклад сотрудников {sum_salaries / len(report)} руб.")
+with open(r'python_dz\les5\les5_5.txt', 'r', encoding='utf-8') as txt:
+    content = list(map(int, txt.read().strip().split()))
+    print(f'Сумма чисел равна {sum(content)}')
