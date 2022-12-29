@@ -1,7 +1,8 @@
 # Из ваших заданий в уроках 1-5 найти 2-3 скрипта, сделать замеры памяти, оптимизировать, вновь выполнить замеры и ОПИСАТЬ СЛОВАМИ, что вы сделали и чего удалось добиться
 
-from memory_profiler import profile
 from copy import deepcopy
+from memory_profiler import profile
+
 
 @profile
 def function_1():
@@ -18,6 +19,9 @@ def my_func1(a, b, c):
     sorted_list = sorted([a, b, c])
     y = deepcopy(sorted_list)
     return sorted_list[1] + sorted_list[2]
+    
+my_func(2, 3, 5)
+my_func1(2, 3, 5)
 
 @profile
 def list_of_seasons(number):
