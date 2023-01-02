@@ -1,23 +1,27 @@
 # Наталья. не увидел второго скрипта для оптимизации времени плюс по памяти не увидел оптимизации 
 # Из ваших заданий в уроках 1-5 найти 2-3 скрипта, сделать замеры времени, оптимизировать, вновь выполнить замеры и ОПИСАТЬ СЛОВАМИ, что вы сделали и чего удалось добиться
 
-from timeit import timeit
-def my_func(a, b, c):
-    return a + b + c - min(a, b, c)
+@profile
+def main(initial_list):
+    first_min = min(initial_list)
+    first_min_ind = initial_list.index(first_min)
 
-def my_func1(a, b, c):
-    sorted_list = sorted([a, b, c])
-    return sorted_list[1] + sorted_list[2]
+    second_min = max(initial_list)
+    for i, value in enumerate(initial_list):
+        if i == first_min_ind:
+            continue
+        if value < second_min:
+            second_min = value
+
+    print(f'Два наименьших элемента: {first_min}, {second_min}')
 
 
-print(timeit('my_func(2, 3, 5)', setup='from __main__ import my_func'))
-print(timeit('my_func1(2, 3, 5)', setup='from __main__ import my_func1'))
+@profile
+def main2(initial_list):
+    sorted_list = sorted(initial_list)
+    print(f'Два наименьших элемента: {sorted_list[0]}, {sorted_list[1]}')
 
-"""
-Для сравнения решила воспользоваться методом, который использует функцию sorted() для поиска наибольшего элемента. 
-Функция sorted() сортирует список в порядке возрастания и выводит наибольшее число.
-Используя этот метод, мы увидели, что скорость выполнения у нас возросла. 
-Вывод: использовать первоначальный метод было лучшим решением.
-0.19445660000201315
-0.2124706999748014
-"""
+
+if __name__ == '__main__':
+    main(initial_list)
+    main2(initial_list)
