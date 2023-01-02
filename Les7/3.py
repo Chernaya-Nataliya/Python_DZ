@@ -9,7 +9,6 @@ class Worker:
         self.name, self.surname, self.position = name, surname, position
         self._income = {"wage": wage, "bonus": bonus}
 
-
 class Position(Worker):
     def get_full_name(self):
         return f"{self.name} {self.surname}"
